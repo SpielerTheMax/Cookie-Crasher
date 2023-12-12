@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    body{
+        margin-left: 650px;
+        background-color: rgb(31, 32, 34);
+        }
+    p{
+        font-family: cursive;
+    }
+    button{
+        font-family: cursive;
+        background-color: gray;
+    }
+    h1{
+        font-family: cursive;
+    }
+    button:hover{
+        background-color: rgb(36, 36, 36);
+    }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie-Crasher</title>
+</head>
+<body>
+<h1>Cookie Crasher</h1>
+<img src="Cookie.png" onclick="Click()" width="500">
+<p id="counter">Cookies: 0</p>
+<p id="CPC">CPC: 1</p>
+<p id="Rebirth">Rebirths: 0</p>
+<button onclick="Shop(0.5, 10)">
++0.5 CPC 10$    
+</button>
+<button onclick="Shop(3.5, 50)">
++3.5 CPC 50$    
+</button>
+<button onclick="Shop(8.5, 100)">
++8.5 CPC 100$    
+</button>
+<button onclick="Shop(2500, 10000)">
++2500 CPC 10000$
+</button>
+<br>
+<button onclick="Shop(2500, 10000)">
++10000 CPC 50000$
+</button>
+<button onclick="Shop(50000, 100000)">
++50000 CPC 100000$
+</button>
+<button onclick="Shop(100000, 500000)">
++100000 CPC 500000$
+</button>
+<br>
+<br>
+<button onclick="Rebirthing()">
+Rebirth
+</button>
+<script>
+let rebirth = 0
+let cookies = 0
+let multi = 1
+function Click() {
+    cookies = cookies+multi
+    document.getElementById("counter").innerHTML = "Cookies: "+cookies
+}
+function Shop(plus, price) {
+    if (cookies > price-1) {
+        cookies = cookies-price
+        multi = multi+plus
+        document.getElementById("counter").innerHTML = "Cookies: "+cookies
+        document.getElementById("CPC").innerHTML = "CPC: "+multi
+    }
+    else{
+        alert("You need more cookies.")
+    }
+}
+function Rebirthing() {
+    let aceptate = confirm("You will get nothing whithout a rebirth and you will lose upgrades and cookies.")
+    if (aceptate == true){
+        if (cookies > 1000000) {
+            cookies = 0
+            multi = 1
+            rebirth = rebirth+1
+            document.getElementById("Rebirth").innerHTML = "Rebirth: "+rebirth
+            document.getElementById("counter").innerHTML = "Cookies: "+cookies
+            document.getElementById("CPC").innerHTML = "CPC: "+multi
+}
+else{
+    alert("You need more cookies.")
+}
+}
+else{
+    alert("Rebith cancled.")
+}
+}
+</script>
+</body>
+</html>
